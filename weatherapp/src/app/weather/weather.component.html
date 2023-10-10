@@ -1,0 +1,76 @@
+<div class="all-container">
+ 
+<div class="container">
+  <div class="upper-data">
+    <img [src]="myimg" alt="a">
+    <div class="weather-data">
+      <div class="location">{{place}}</div>
+      <div class="temprature">{{temperature|number:'1.0-0'}}°C</div>
+    </div>
+  </div>
+  <div class="lower-data">
+    <div class="more-info-label">
+      More Information
+      <div class="more-info-container">
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="assets/temperature.png" alt="">
+            <span>Min</span>
+          </div>
+          <div class="info-block-value">
+            {{mintemp|number:'1.0-0'}}°C
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="assets/high-temperature.png" alt="">
+            <span>Max</span>
+          </div>
+          <div class="info-block-value">
+            {{maxtemp|number:'1.0-0'}}°C
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="assets/icons8-wind-50.png" alt="">
+            <span>Wind speed</span>
+          </div>
+          <div class="info-block-value">
+            {{windspeed|number:'1.0-0'}}km/h
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="assets/windsock.png" alt="">
+            <span style="width: 110px;">Wind direction</span>
+          </div>
+          <div class="info-block-value">
+            {{winddirection|number:'1.0-0'}}°
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+ <div class="form">
+   <form class="form-container">
+     <div class="form-group">
+       <label for="latitude">Latitude <span class="between"> (-90:90)</span></label>
+       <input  (keypress)="Keycode($event)" [(ngModel)]="latitute" type="text" class="form-control" id="latitude" name="latitude"
+         aria-describedby="emailHelp" placeholder="Enter latitude">
+     </div>
+     <div class="form-group">
+       <label for="longtitude">Longtitude <span class="between">(-180:180)</span></label>
+       <input (keypress)="Keycode($event)" [(ngModel)]="longtitude" type="text" name="longtitude" class="form-control"
+         id="longtitude"
+         placeholder="Enter longtitude">
+     </div>
+     <div class="error">{{errorMsg}}</div>
+     <button (click)="Search()" type="submit" class="btn btn-primary">Submit</button>
+   </form>
+ </div>
+</div>
+
+
